@@ -1,22 +1,15 @@
 import { createGlobalTheme } from "@vanilla-extract/css";
 
-// const jost = "Jost";
-
-// globalFontFace(jost, [
-//   {
-//     src: 'url("./fonts/Jost-Medium.ttf")',
-//     fontWeight: "normal",
-//   },
-//   {
-//     src: 'url("./fonts/Jost-ExtraBold.ttf")',
-//     fontWeight: "bold",
-//   },
-// ]);
-
 export const theme_vars = createGlobalTheme(":root", {
   color: {
     red: "#e2625e",
+    red_darker: "rgba(198, 82, 78, 1)",
+    red_lighter: "#f66f6aff",
     yellow: "#ffefae",
+    yellow_darker: "#e5d591ff",
+    yellow_lighter: "#fdf3c7ff",
+    green_darker: "#3d865eff",
+    green_lighter: "#57bc85ff",
     green: "#489b6e",
     gray: "#b6bfc1",
     black: "#111314",
@@ -35,8 +28,8 @@ export const theme_vars = createGlobalTheme(":root", {
     40: "40px",
   },
   font: {
-    small: "12px",
-    body: "14px",
+    small: "14px",
+    body: "16px",
     title: "36px",
     family: `"Jost", sans-serif`,
   },

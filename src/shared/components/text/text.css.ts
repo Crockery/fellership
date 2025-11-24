@@ -6,9 +6,16 @@ const base = style({
   lineHeight: 1,
   fontFamily: theme_vars.font.family,
   fontWeight: "normal",
+  textAlign: "left",
   selectors: {
     ['&[data-bold="true"]']: {
       fontWeight: "bold",
+    },
+    ['&[data-align="center"]']: {
+      textAlign: "center",
+    },
+    ['&[data-align="right"]']: {
+      textAlign: "right",
     },
   },
 });
