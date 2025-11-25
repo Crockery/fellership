@@ -12,8 +12,12 @@ export const theme_vars = createGlobalTheme(":root", {
     green_lighter: "#57bc85ff",
     green: "#489b6e",
     gray: "#b6bfc1",
+    black_lighter: "#1f2224ff",
     black: "#111314",
+    black_darker: "#000",
     white: "#f0f0f0ff",
+    white_ligher: "#FFF",
+    white_darker: "#d6d6d6ff",
   },
   spacing: {
     4: "4px",

@@ -1,44 +1,59 @@
-import { style } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 import { theme_vars } from "../../shared";
 
 export const home_page = style({
   width: "100%",
   height: "100%",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  flexDirection: "column",
-  rowGap: theme_vars.spacing[20],
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  gridTemplateRows: "1fr 1fr",
+  container: "home_page / size",
 });
 
-export const explanation_text = style({
+const base_block = style({
+  height: "100%",
   width: "100%",
   display: "flex",
-  alignItems: "center",
-  maxWidth: 500,
-  justifyContent: "center",
-  flexDirection: "column",
-  rowGap: theme_vars.spacing[12],
-});
-
-export const upload_label = style({
-  padding: `${theme_vars.spacing[4]} ${theme_vars.spacing[8]}`,
-  borderRadius: "6px",
-  border: `2px solid ${theme_vars.color.yellow}`,
-  color: theme_vars.color.yellow,
   fontFamily: theme_vars.font.family,
-  cursor: "pointer",
-  fontSize: theme_vars.font.body,
-  transition: "0.125s ease-in-out",
-  selectors: {
-    ["&:hover"]: {
-      color: theme_vars.color.yellow_darker,
-      borderColor: theme_vars.color.yellow_darker,
-    },
-  },
+  overflow: "hidden",
+  wordBreak: "break-word",
 });
 
-export const upload_input = style({
-  opacity: 0,
-  pointerEvents: "none",
+export const block_variants = styleVariants({
+  one: [
+    base_block,
+    {
+      backgroundColor: theme_vars.color.yellow,
+      color: theme_vars.color.red,
+      fontSize: "14cqw",
+      fontWeight: "bold",
+      lineHeight: "0.8",
+      display: "flex",
+      alignItems: "center",
+    },
+  ],
+  two: [
+    base_block,
+    {
+      backgroundColor: theme_vars.color.black,
+    },
+  ],
+  three: [
+    base_block,
+    {
+      backgroundColor: theme_vars.color.green,
+    },
+  ],
+  four: [
+    base_block,
+    {
+      backgroundColor: theme_vars.color.red,
+      color: theme_vars.color.yellow,
+      fontSize: "8cqw",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      textDecoration: "underline",
+    },
+  ],
 });

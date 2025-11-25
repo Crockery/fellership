@@ -8,7 +8,6 @@ export const root_layout_style = style({
   flexDirection: "column",
   alignItems: "flex-start",
   justifyContent: "flex-start",
-  padding: theme_vars.spacing[20],
   background: theme_vars.color.black,
   overflow: "hidden",
 });
