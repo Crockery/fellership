@@ -1,58 +1,25 @@
-import { memo, useCallback, type ChangeEvent } from "react";
-import { Text } from "../../shared/components";
-import {
-  // explanation_text,
-  editor_page,
-  editor_page_inner,
-  // upload_input,
-  // upload_label,
-} from "./editor-page.css";
-import { initValidator } from "../../shared";
+import { memo } from "react";
+import { editor_page, back_button_wrapper } from "./editor-page.css";
+import { editor_state } from "../../shared/state";
+import { useSnapshot } from "valtio";
+import { EditorUninitialized } from "./components/editor-uninitialized";
+import { Link } from "@tanstack/react-router";
+import { Button } from "../../shared";
+import { ArrowLeft } from "lucide-react";
+import { Route as Home } from "../../routes";
+import cx from "classnames";
 
 export const EditorPage = memo(() => {
-  const onUpload = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.item(0);
-    const text = await file?.text();
+  const { initialized, hash, unhashed } = useSnapshot(editor_state);
 
-    if (text) {
-      const lines = text.split("\r\n");
-      if (initValidator(lines)) {
-        console.log("thanks!");
-        console.log(lines);
-      }
-    }
-  }, []);
+  console.log({ hash, unhashed });
 
   return (
     <div className={editor_page}>
-      <div className={editor_page_inner}></div>
-      {/* <Text bold color="yellow" size="title" text="Hello!" />
-      <div className={explanation_text}>
-        <Text
-          color="white"
-          size="body"
-          align="center"
-          text="This editor requires the 'GameSettings.ini' file from your fellowship installation."
-        />
-        <Text
-          color="white"
-          align="center"
-          size="body"
-          text="On Windows, you can find this file here: '%localappdata%\fellowship\Saved\Config\Windows'"
-        />
-      </div>
-      <label className={upload_label} htmlFor="settings_upload">
-        Click Here To Upload
-      </label>
-      <input
-        onChange={onUpload}
-        type="file"
-        className={upload_input}
-        id="settings_upload"
-        name="settings_upload"
-        accept=".ini"
-        multiple={false}
-      /> */}
+      <Link className={cx(back_button_wrapper, { initialized })} to={Home.to}>
+        <Button color="red" text="BACK" icon={<ArrowLeft />} />
+      </Link>
+      {!initialized ? <EditorUninitialized /> : <div />}
     </div>
   );
 });

@@ -17,6 +17,12 @@ const base = style({
   justifyContent: "center",
   whiteSpace: "nowrap",
   columnGap: theme_vars.spacing[8],
+  selectors: {
+    ["&:disabled"]: {
+      cursor: "not-allowed",
+      opacity: 0.5,
+    },
+  },
 });
 
 export const button_variants = styleVariants({
@@ -80,4 +86,8 @@ export const button_variants = styleVariants({
       },
     },
   ],
+});
+
+export const icon_wrapper = style({
+  display: "flex",
 });

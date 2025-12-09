@@ -6,6 +6,7 @@ import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 import eslint from '@eslint/js';
+import valtio from 'eslint-plugin-valtio';
 
 export default defineConfig([
   globalIgnores(['dist']),
@@ -18,6 +19,7 @@ export default defineConfig([
       reactRefresh.configs.vite,
       reactX.configs['recommended-typescript'],
       reactDom.configs.recommended,
+      valtio.configs["flat/recommended"],
       eslintConfigPrettier
     ],
     languageOptions: {
