@@ -1,25 +1,39 @@
-import { memo } from "react";
-import { editor_page, back_button_wrapper } from "./editor-page.css";
-import { editor_state } from "../../shared/state";
-import { useSnapshot } from "valtio";
-import { EditorUninitialized } from "./components/editor-uninitialized";
 import { Link } from "@tanstack/react-router";
-import { Button } from "../../shared";
-import { ArrowLeft } from "lucide-react";
-import { Route as Home } from "../../routes";
 import cx from "classnames";
+import { ArrowLeft } from "lucide-react";
+import { memo } from "react";
+import { useSnapshot } from "valtio";
+import { Route as Home } from "../../routes";
+import { Button } from "../../shared";
+import { editor_state } from "../../shared/state";
+import { EditorUninitialized } from "./components/editor-uninitialized";
+import { Editor } from "./editor/editor";
+import { back_button_wrapper, editor_page } from "./editor-page.css";
+
+// const route = getRouteApi("/editor");
 
 export const EditorPage = memo(() => {
-  const { initialized, hash, unhashed } = useSnapshot(editor_state);
+	const { initialized } = useSnapshot(editor_state);
 
-  console.log({ hash, unhashed });
+	// TODO: Enable initialization with hash.
+	// const { hash } = route.useSearch();
 
-  return (
-    <div className={editor_page}>
-      <Link className={cx(back_button_wrapper, { initialized })} to={Home.to}>
-        <Button color="red" text="BACK" icon={<ArrowLeft />} />
-      </Link>
-      {!initialized ? <EditorUninitialized /> : <div />}
-    </div>
-  );
+	// useEffect(() => {
+	// 	try {
+	// 		if (!initialized && !!hash) {
+	// 			initEditor({ hash });
+	// 		}
+	// 	} catch (error) {
+	// 		console.error(error);
+	// 	}
+	// }, [hash, initialized]);
+
+	return (
+		<div className={editor_page}>
+			<Link className={cx(back_button_wrapper, { initialized })} to={Home.to}>
+				<Button color="red" text="BACK" icon={<ArrowLeft />} />
+			</Link>
+			{!initialized ? <EditorUninitialized /> : <Editor />}
+		</div>
+	);
 });
