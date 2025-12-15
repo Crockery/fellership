@@ -1,6 +1,8 @@
+import { Button as BaseButton } from "@base-ui/react/button";
 import cx from "classnames";
 import {
 	type ButtonHTMLAttributes,
+	type ComponentType,
 	forwardRef,
 	memo,
 	type ReactNode,
@@ -14,11 +16,23 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	text: string;
 	icon?: ReactNode;
 	disabled?: boolean;
+	Render?: ComponentType;
 }
 
 const _Button = forwardRef<HTMLButtonElement, ButtonProps>(
-	({ color, text, disabled, className, icon, ...buttonProps }, ref) => (
-		<button
+	(
+		{
+			color,
+			text,
+			disabled,
+			className,
+			icon,
+			Render = BaseButton,
+			...buttonProps
+		},
+		ref,
+	) => (
+		<Render
 			disabled={disabled}
 			className={cx(button_variants[color], className)}
 			ref={ref}
@@ -26,7 +40,7 @@ const _Button = forwardRef<HTMLButtonElement, ButtonProps>(
 		>
 			{icon && <div className={icon_wrapper}>{icon}</div>}
 			{text}
-		</button>
+		</Render>
 	),
 );
 

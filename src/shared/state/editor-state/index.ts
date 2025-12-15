@@ -1,5 +1,6 @@
 import { proxy } from "valtio";
 import { parseGameSettings } from "./utils";
+import type { PROFILE_KEYS } from "./utils/parse-game-settings/shared";
 
 const DEFAULT_STATE = {
 	screen_height: 0,
@@ -7,10 +8,19 @@ const DEFAULT_STATE = {
 	initialized: false,
 };
 
-export const editor_state = proxy({
+export const editor_state = proxy<{
+	screen_height: number;
+	screen_width: number;
+	initialized: boolean;
+	profiles: Record<PROFILE_KEYS, unknown>[];
+	hash: string;
+	unhashed: string;
+	reset: VoidFunction;
+}>({
 	screen_height: DEFAULT_STATE.screen_height,
 	screen_width: DEFAULT_STATE.screen_width,
 	initialized: DEFAULT_STATE.initialized,
+	profiles: [],
 	get hash() {
 		return window.btoa(JSON.stringify([this.screen_height, this.screen_width]));
 	},
@@ -48,6 +58,7 @@ export const initEditor = ({
 				editor_state.screen_height = parsed.screen_height;
 				editor_state.screen_width = parsed.screen_width;
 				editor_state.initialized = true;
+				editor_state.profiles = parsed.profiles;
 
 				console.log(parsed);
 

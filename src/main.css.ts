@@ -147,4 +147,5 @@ globalStyle("body", {
 export const root_style = style({
 	width: "100%",
 	height: "100%",
+	isolation: "isolate",
 });

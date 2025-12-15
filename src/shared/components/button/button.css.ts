@@ -17,10 +17,16 @@ const base = style({
 	justifyContent: "center",
 	whiteSpace: "nowrap",
 	columnGap: theme_vars.spacing[8],
+	outlineWidth: "0px",
+	outlineStyle: "solid",
+	outlineOffset: theme_vars.spacing[4],
 	selectors: {
 		["&:disabled"]: {
 			cursor: "not-allowed",
 			opacity: 0.5,
+		},
+		["&:focus:not(:active)"]: {
+			outlineWidth: "2px",
 		},
 	},
 });
@@ -32,6 +38,7 @@ export const button_variants = styleVariants({
 			color: theme_vars.color.yellow,
 			borderColor: theme_vars.color.yellow,
 			backgroundColor: theme_vars.color.red,
+			outlineColor: theme_vars.color.yellow,
 			selectors: {
 				["&:hover"]: {
 					color: theme_vars.color.yellow_darker,
@@ -47,6 +54,7 @@ export const button_variants = styleVariants({
 			color: theme_vars.color.black,
 			borderColor: theme_vars.color.black,
 			backgroundColor: theme_vars.color.green,
+			outlineColor: theme_vars.color.black,
 			selectors: {
 				["&:hover"]: {
 					color: theme_vars.color.black_darker,
@@ -62,6 +70,7 @@ export const button_variants = styleVariants({
 			color: theme_vars.color.red,
 			borderColor: theme_vars.color.red,
 			backgroundColor: theme_vars.color.yellow,
+			outlineColor: theme_vars.color.red,
 			selectors: {
 				["&:hover"]: {
 					color: theme_vars.color.red_darker,
@@ -77,6 +86,7 @@ export const button_variants = styleVariants({
 			color: theme_vars.color.green,
 			borderColor: theme_vars.color.green,
 			backgroundColor: theme_vars.color.black,
+			outlineColor: theme_vars.color.green,
 			selectors: {
 				["&:hover"]: {
 					color: theme_vars.color.green_darker,

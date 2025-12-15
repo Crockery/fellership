@@ -30,10 +30,19 @@ export const EditorPage = memo(() => {
 
 	return (
 		<div className={editor_page}>
-			<Link className={cx(back_button_wrapper, { initialized })} to={Home.to}>
-				<Button color="red" text="BACK" icon={<ArrowLeft />} />
-			</Link>
-			{!initialized ? <EditorUninitialized /> : <Editor />}
+			{!initialized ? (
+				<>
+					<Link
+						className={cx(back_button_wrapper, { initialized })}
+						to={Home.to}
+					>
+						<Button color="red" text="BACK" icon={<ArrowLeft />} />
+					</Link>
+					<EditorUninitialized />
+				</>
+			) : (
+				<Editor />
+			)}
 		</div>
 	);
 });
