@@ -1,5 +1,6 @@
 import { Button } from "@base-ui/react/button";
 import cx from "classnames";
+import type { LucideIcon } from "lucide-react";
 import {
 	type ComponentType,
 	type HTMLAttributes,
@@ -10,7 +11,7 @@ import type { ButtonColors } from "../shared/types";
 import { icon_button_variants } from "./icon-button.css";
 
 interface IconButtonProps extends HTMLAttributes<HTMLButtonElement> {
-	Icon: ComponentType;
+	Icon: LucideIcon;
 	ref?: RefObject<HTMLButtonElement>;
 	color: ButtonColors;
 	As?: ComponentType;
@@ -24,7 +25,7 @@ export const IconButton = memo<IconButtonProps>(
 				{...rest}
 				ref={ref}
 			>
-				<Icon />
+				<Icon size={18} />
 			</As>
 		);
 	},

@@ -13,6 +13,7 @@
     "@base-ui/react": "^1.0.0",
     "@tanstack/react-router": "^1.139.0",
     "@tanstack/react-router-devtools": "^1.139.0",
+    "@vanilla-extract/css": "^1.18.0",
     "classnames": "^2.5.1",
     "fellowship-ts": "^0.0.8",
     "lucide-react": "^0.554.0",

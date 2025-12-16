@@ -24,6 +24,7 @@ export const initEditor = ({
 				editor_state.screen_width = parsed.screen_width;
 				editor_state.initialized = true;
 				editor_state.profiles = parsed.profiles;
+				editor_state.active_profile = editor_state.profile_names[0];
 
 				console.log(parsed);
 

@@ -2,6 +2,7 @@ export const DEFAULT_EDITOR_STATE = {
 	screen_height: 0,
 	screen_width: 0,
 	initialized: false,
+	active_profile: undefined,
 };
 
 // Root Keys

@@ -3,7 +3,6 @@ import { THEME_COLORS } from "../../constants";
 import { theme_vars } from "../../theme.css";
 
 const base = style({
-	lineHeight: 1,
 	fontFamily: theme_vars.font.family,
 	fontWeight: "normal",
 	textAlign: "left",
