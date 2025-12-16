@@ -1,19 +1,14 @@
 import { Select as BaseSelect } from "@base-ui/react/select";
 import { Toolbar } from "@base-ui/react/toolbar";
-import { ArrowLeft, ChevronsUpDown } from "lucide-react";
+import { ChevronsUpDown, Trash } from "lucide-react";
 import { memo } from "react";
-import { Button, Select } from "../../../../shared";
+import { IconButton, Select } from "../../../../shared";
+import { resetEditor } from "../../../../shared/state";
+import * as styles from "./editor-toolbar.css";
 
 export const EditorToolbar = memo(() => {
 	return (
-		<Toolbar.Root>
-			<Button
-				Render={Toolbar.Button}
-				color="red"
-				text="BACK"
-				icon={<ArrowLeft />}
-			/>
-			<Toolbar.Separator />
+		<Toolbar.Root className={styles.toolbar}>
 			<Select
 				trigger={
 					<Toolbar.Button render={<BaseSelect.Trigger />}>
@@ -27,6 +22,12 @@ export const EditorToolbar = memo(() => {
 					{ label: "Hi", value: "hi" },
 					{ label: "Bye", value: "bye" },
 				]}
+			/>
+			<IconButton
+				className={styles.reset_button}
+				color="black"
+				Icon={Trash}
+				onClick={resetEditor}
 			/>
 		</Toolbar.Root>
 	);

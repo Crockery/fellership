@@ -2,7 +2,7 @@ import { getRouteApi } from "@tanstack/react-router";
 import { FileUp } from "lucide-react";
 import { type ChangeEvent, memo, useCallback, useState } from "react";
 import { button_variants, Spinner, Text } from "../../../shared";
-import { initEditor } from "../../../shared/state";
+import { initEditor, resetEditor } from "../../../shared/state";
 import {
 	editor_page_inner,
 	upload_input,
@@ -24,6 +24,7 @@ export const EditorUninitialized = memo(() => {
 				const text = await file?.text();
 
 				if (text) {
+					resetEditor();
 					const hash = await initEditor({ file: text });
 
 					if (hash) {

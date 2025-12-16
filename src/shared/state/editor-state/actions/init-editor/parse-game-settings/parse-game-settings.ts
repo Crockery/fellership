@@ -1,7 +1,7 @@
+import { ROOT_KEYS } from "../../../shared/constants";
 import { getLine } from "./helpers/get-line";
 import { parseProfile } from "./parse-profile/parse-profile";
 import { parseField } from "./shared";
-import { ROOT_KEYS } from "./shared/constants";
 
 export const parseGameSettings = (file: string) => {
 	const lines = file.split("\r\n");

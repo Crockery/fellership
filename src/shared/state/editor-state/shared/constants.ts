@@ -1,3 +1,9 @@
+export const DEFAULT_EDITOR_STATE = {
+	screen_height: 0,
+	screen_width: 0,
+	initialized: false,
+};
+
 // Root Keys
 export enum ROOT_KEYS {
 	ResolutionSizeY = "ResolutionSizeY",

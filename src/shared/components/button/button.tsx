@@ -7,9 +7,8 @@ import {
 	memo,
 	type ReactNode,
 } from "react";
+import type { ButtonColors } from "../shared/types";
 import { button_variants, icon_wrapper } from "./button.css";
-
-export type ButtonColors = "red" | "yellow" | "green" | "black";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	color: ButtonColors;

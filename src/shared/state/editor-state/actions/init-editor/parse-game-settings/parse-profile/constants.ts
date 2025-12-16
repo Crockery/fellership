@@ -1,4 +1,4 @@
-import { PROFILE_KEYS } from "../shared";
+import { PROFILE_KEYS } from "../../../../shared/constants";
 
 export const SINGLE_VALUE_KEYS = [
 	PROFILE_KEYS.ProfileName,

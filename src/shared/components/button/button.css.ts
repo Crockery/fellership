@@ -5,7 +5,7 @@ const base = style({
 	fontWeight: "bold",
 	fontSize: "18px",
 	fontFamily: theme_vars.font.family,
-	borderRadius: theme_vars.spacing[8],
+	borderRadius: theme_vars.radius,
 	borderWidth: "2px",
 	borderStyle: "solid",
 	cursor: "pointer",

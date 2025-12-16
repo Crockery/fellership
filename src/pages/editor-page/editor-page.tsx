@@ -21,6 +21,7 @@ export const EditorPage = memo(() => {
 	// useEffect(() => {
 	// 	try {
 	// 		if (!initialized && !!hash) {
+	// 			resetEditor();
 	// 			initEditor({ hash });
 	// 		}
 	// 	} catch (error) {

@@ -20,7 +20,9 @@ export const theme_vars = createGlobalTheme(":root", {
 		white_darker: "#d6d6d6ff",
 	},
 	spacing: {
+		2: "2px",
 		4: "4px",
+		6: "6px",
 		8: "8px",
 		12: "12px",
 		16: "16px",
@@ -37,4 +39,5 @@ export const theme_vars = createGlobalTheme(":root", {
 		title: "36px",
 		family: `"Jost", sans-serif`,
 	},
+	radius: "8px",
 });
