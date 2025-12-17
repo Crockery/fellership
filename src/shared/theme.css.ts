@@ -40,4 +40,5 @@ export const theme_vars = createGlobalTheme(":root", {
 		family: `"Jost", sans-serif`,
 	},
 	radius: "8px",
+	shadow: "5px 5px 15px -5px #000000",
 });

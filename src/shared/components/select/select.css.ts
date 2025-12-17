@@ -5,15 +5,24 @@ import { focusable_input, input_colors } from "../shared/styles.css";
 const trigger_base = style([
 	focusable_input,
 	{
-		display: "flex",
+		display: "grid",
 		alignItems: "center",
-		justifyContent: "center",
 		columnGap: theme_vars.spacing[8],
 		fontSize: theme_vars.font.body,
 		padding: `${theme_vars.spacing[4]} ${theme_vars.spacing[8]}`,
 		fontFamily: theme_vars.font.family,
+		gridTemplateColumns: "1fr 16px",
+		overflow: "hidden",
 	},
 ]);
+
+export const trigger_value = style({
+	overflow: "hidden",
+	width: "100%",
+	height: "100%",
+	textOverflow: "ellipsis",
+	textAlign: "left",
+});
 
 export const select_trigger_variants = styleVariants({
 	red: [trigger_base, input_colors.red],
@@ -39,6 +48,7 @@ const popup_base = style({
 	borderWidth: "1px",
 	borderStyle: "solid",
 	transformOrigin: "var(--transform-origin)",
+	boxShadow: theme_vars.shadow,
 	transition: "transform 150ms, opacity 150ms",
 	selectors: {
 		["&[data-starting-style]"]: {
@@ -49,10 +59,6 @@ const popup_base = style({
 			opacity: 0,
 			transform: "scale(0.9)",
 		},
-		// ["&[data-side='none']"]: {
-		// 	opacity: 0,
-		// 	transform: "scale(0.9)",
-		// },
 	},
 });
 
@@ -98,16 +104,15 @@ export const select_list = style({
 	justifyContent: "flex-start",
 	width: "100%",
 	position: "relative",
-	paddingBlock: "0.25rem",
 	overflowY: "auto",
 	maxHeight: "var(--available-height)",
-	scrollPaddingBlock: "1.5rem",
 	padding: theme_vars.spacing[4],
 });
 
 export const select_item = style({
 	fontSize: theme_vars.font.body,
 	color: "currentColor",
+	width: "100%",
 	fontFamily: theme_vars.font.family,
 	cursor: "pointer",
 	display: "grid",
@@ -124,10 +129,11 @@ export const select_item = style({
 			content: "",
 			zIndex: "-1",
 			position: "absolute",
-			width: "12px",
 			top: "50%",
+			left: "4px",
 			transform: "translateY(-50%)",
-			height: "12px",
+			width: "6px",
+			height: "6px",
 			borderRadius: "50%",
 			backgroundColor: "currentColor",
 		},
@@ -136,6 +142,7 @@ export const select_item = style({
 
 export const select_item_text = style({
 	gridColumnStart: 2,
+	width: "100%",
 });
 
 export const select_item_indicator = style({

@@ -13,6 +13,7 @@ import {
 	select_list,
 	select_positioner,
 	select_trigger_variants,
+	trigger_value,
 } from "./select.css";
 
 export interface SelectOption<T extends string | number> {
@@ -31,14 +32,14 @@ interface SelectProps<T extends string | number> {
 		value: T | null,
 		eventDetails: SelectBase.Root.ChangeEventDetails,
 	) => void;
-	triggerClassName?: string;
+	trigger_class?: string;
 }
 
 export const Select = <T extends string | number>({
 	options,
 	in_toolbar,
 	color,
-	triggerClassName,
+	trigger_class,
 	defaultValue,
 	value,
 	onValueChange,
@@ -47,7 +48,7 @@ export const Select = <T extends string | number>({
 	const trigger_inner = useMemo(
 		() => (
 			<>
-				<SelectBase.Value />
+				<SelectBase.Value className={trigger_value} />
 				<SelectBase.Icon className={select_icon}>
 					<ChevronsUpDown size={16} />
 				</SelectBase.Icon>
@@ -68,7 +69,7 @@ export const Select = <T extends string | number>({
 				<Toolbar.Button
 					render={
 						<SelectBase.Trigger
-							className={cx(select_trigger_variants[color], triggerClassName)}
+							className={cx(select_trigger_variants[color], trigger_class)}
 						/>
 					}
 				>
@@ -76,7 +77,7 @@ export const Select = <T extends string | number>({
 				</Toolbar.Button>
 			) : (
 				<SelectBase.Trigger
-					className={cx(select_trigger_variants[color], triggerClassName)}
+					className={cx(select_trigger_variants[color], trigger_class)}
 				>
 					{trigger_inner}
 				</SelectBase.Trigger>

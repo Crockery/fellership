@@ -23,3 +23,15 @@ export const seperator = style({
 export const reset_button = style({
 	marginLeft: "auto",
 });
+
+export const group = style({
+	display: "flex",
+	height: "100%",
+	alignItems: "center",
+	justifyContent: "flex-start",
+	columnGap: theme_vars.spacing[8],
+});
+
+export const profile_selector = style({
+	width: "200px",
+});
